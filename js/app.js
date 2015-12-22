@@ -1,14 +1,14 @@
-// Enemies our player must avoid
-var constants = {
-    'MAX_YPOS': 300,
-    'MAX_XPOS': 300,
-    'MIN_YPOS': 140,
-    'MIN_XPOS': 100,
-    'CANVAS_WIDTH': 505,
-    'START_XPOS': 200,
-    'START_YPOS': 380
-};
+// constants in the game
+var constants = constants || {};
+constants.MAX_YPOS = 300;
+constants.MAX_XPOS = 300;
+constants.MIN_YPOS = 140;
+constants.MIN_XPOS = 100;
+constants.CANVAS_WIDTH = 505;
+constants.START_XPOS = 200;
+constants.START_YPOS = 380;
 
+// Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
