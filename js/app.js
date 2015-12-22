@@ -29,12 +29,11 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     //possible y positions for enemy
     var yPos = [60, 140, 230];
-    if (this.x + dt*this.speed < constants.CANVAS_WIDTH) {
-        this.x = this.x + dt*this.speed;
-    }
-    else {
+    if (this.x + dt * this.speed < constants.CANVAS_WIDTH) {
+        this.x = this.x + dt * this.speed;
+    } else {
         this.x = -150;
-        this.y = yPos[Math.floor(Math.random()*3)];
+        this.y = yPos[Math.floor(Math.random() * 3)];
     }
     // checks collision between enemy and player
     if (this.x >= player.x - 50 && this.x <= player.x + 50 && this.y >= player.y - 60 && this.y <= player.y + 20) {
@@ -52,8 +51,8 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     this.sprite = 'images/char-boy.png';
-    this.x = constants.START_XPOS; 
-    this.y = constants.START_YPOS; 
+    this.x = constants.START_XPOS;
+    this.y = constants.START_YPOS;
 };
 
 Player.prototype.update = function() {
@@ -69,20 +68,16 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(dir) {
     if (dir === 'left' && this.x >= constants.MIN_XPOS) {
         this.x = this.xNow - 100;
-    }
-    else if (dir === 'up') {
+    } else if (dir === 'up') {
         // resets player if player reaches water
         if (this.y < constants.MIN_YPOS) {
             this.reset();
-        }
-        else if (this.y >= constants.MIN_YPOS) {
+        } else if (this.y >= constants.MIN_YPOS) {
             this.y = this.yNow - 80;
         }
-    }
-    else if (dir === 'right' && this.x <= constants.MAX_XPOS) {
+    } else if (dir === 'right' && this.x <= constants.MAX_XPOS) {
         this.x = this.xNow + 100;
-    }
-    else if (dir === 'down' && this.y <= constants.MAX_YPOS) {
+    } else if (dir === 'down' && this.y <= constants.MAX_YPOS) {
         this.y = this.yNow + 80;
     }
 };
